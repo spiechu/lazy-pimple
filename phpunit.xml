@@ -2,7 +2,7 @@
 
 <phpunit colors="true">
     <testsuites>
-        <testsuite name="PHP Static Validator Test Suite">
+        <testsuite name="Lazy Pimple Test Suite">
             <directory>test/</directory>
         </testsuite>
     </testsuites>
