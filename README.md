@@ -1,6 +1,6 @@
 # Lazy Pimple
 
-Lazy service definitions for Pimple DI container.
+Lazy service definitions for [Pimple DI container](http://pimple.sensiolabs.org/).
 
 Travis build status:
 [![Build Status](https://travis-ci.org/spiechu/lazy-pimple.svg?branch=master)](https://travis-ci.org/spiechu/lazy-pimple)
@@ -11,6 +11,28 @@ When using Pimple DIC, there is sometimes need to lazy load service and instanti
 What's more, there is also possibility to lazy load event subscribers. (Now you'll see why `\Symfony\Component\EventDispatcher\EventSubscriberInterface` has static interface).
 
 Under the hood this library uses [Proxy Manager](https://github.com/Ocramius/ProxyManager). Object's proxy is firstly generated. Until instance method call is needed, the proxy is being used. This means even static calls don't need object's instance and are called by proxy.
+
+## Installation
+
+Simplest way is to add `"spiechu/lazy-pimple": "~0.1"` to your `composer.json`.
+
+The minimal configuration for lazy loads to work is to add two definitions to your Pimple:
+
+```php
+
+<?php
+
+$pimpleContainer['lazy_loading_value_holder_factory_factory'] = function(Container $container) {
+  return (new \Spiechu\LazyPimple\Factory\LazyLoadingValueHolderFactoryFactory())
+    ->getFactory();
+};
+
+$pimpleContainer['lazy_service_factory'] = function(Container $container) {
+  return new \Spiechu\LazyPimple\Factory\LazyServiceFactory($container['lazy_loading_value_holder_factory_factory']);
+};
+```
+
+In order to use ProxyManager proxy cache, `LazyLoadingValueHolderFactoryFactory->getFactory()` accepts dir path to writable space where it can dump generated proxy class definitions. You can see how to do it in the full listing at the bottom of this page.
 
 ## Usage
 
