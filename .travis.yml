@@ -15,11 +15,10 @@ matrix:
 
 install:
   - composer self-update
-  - composer install
 
 before_script:
   - phpenv rehash
-  - if [ "$dependencies" = "lowest" ]; then composer config -- disable-tls true; composer update --prefer-lowest --prefer-stable; fi;
+  - if [ "$dependencies" = "lowest" ]; then composer config -- disable-tls true; composer update --prefer-lowest --prefer-stable; else composer install; fi;
 
 script:
   - './vendor/bin/phpunit'
