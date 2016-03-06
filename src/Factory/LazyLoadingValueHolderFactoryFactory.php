@@ -43,5 +43,4 @@ class LazyLoadingValueHolderFactoryFactory
 
         return $proxyConfiguration;
     }
-
 }

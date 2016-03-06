@@ -15,12 +15,13 @@ class LazyServiceFactory
     /**
      * @param LazyLoadingValueHolderFactory $lazyLoadingFactory
      */
-    public function __construct(LazyLoadingValueHolderFactory $lazyLoadingFactory) {
+    public function __construct(LazyLoadingValueHolderFactory $lazyLoadingFactory)
+    {
         $this->lazyLoadingFactory = $lazyLoadingFactory;
     }
 
     /**
-     * @param string $className
+     * @param string   $className
      * @param callable $definition
      *
      * @return VirtualProxyInterface

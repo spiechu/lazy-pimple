@@ -26,8 +26,8 @@ class LazyEventSubscriberServiceProvider implements ServiceProviderInterface
 
     /**
      * @param LazyServiceFactory $lazyServiceFactory
-     * @param string $eventDispatcherServiceName
-     * @param string[] $eventSubscriberServiceNames
+     * @param string             $eventDispatcherServiceName
+     * @param string[]           $eventSubscriberServiceNames
      */
     public function __construct(
         LazyServiceFactory $lazyServiceFactory,
@@ -52,11 +52,11 @@ class LazyEventSubscriberServiceProvider implements ServiceProviderInterface
             $lazySubscriber = $this->lazyServiceFactory->getLazyServiceDefinition(
                 $className,
                 // encapsulate the whole Pimple service definition
-                function() use ($container, $serviceName) {
+                function () use ($container, $serviceName) {
                     return call_user_func($container->raw($serviceName), $container);
                 }
             );
-            
+
             $eventDispatcher->addSubscriber($lazySubscriber);
         }
     }
