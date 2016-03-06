@@ -9,6 +9,9 @@ php:
 matrix:
   allow_failures:
     - php: hhvm
+  include:
+    - php: 5.3.3
+      env: dependencies=lowest
 
 install:
   - composer self-update
@@ -16,6 +19,7 @@ install:
 
 before_script:
   - phpenv rehash
+  - if [ "$dependencies" = "lowest" ]; then composer update --prefer-lowest --prefer-stable; fi;
 
 script:
   - './vendor/bin/phpunit'

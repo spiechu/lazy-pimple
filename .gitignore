@@ -1,8 +1,6 @@
 composer.phar
 
 /vendor/
-
-
 /nbproject/
 
 /test/proxy_cache_dir/
