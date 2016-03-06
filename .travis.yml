@@ -35,7 +35,7 @@ install:
   - if [ "$DEPENDENCIES" == "low" ]; then composer update --prefer-lowest; fi;
 
 script:
-  - './vendor/bin/phpunit --testdox'
+  - './vendor/bin/phpunit'
 
 notifications:
   email: false
