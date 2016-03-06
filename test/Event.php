@@ -11,6 +11,5 @@ final class Event
      */
     final private function __construct()
     {
-        
     }
 }

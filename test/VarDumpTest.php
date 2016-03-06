@@ -2,24 +2,11 @@
 
 namespace Spiechu\LazyPimple;
 
-use Pimple\Container;
 use Spiechu\LazyPimple\Service\EventEmittingService;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
-class VarDumpTest extends \PHPUnit_Framework_TestCase
+class VarDumpTest extends AbstractLazyPimpleTest
 {
-    /**
-     * @var Container
-     */
-    protected $container;
-
-    public function setUp()
-    {
-        $this->container = require_once 'bootstrap.php';
-
-        $this->assertInstanceOf(Container::class, $this->container);
-    }
-
     public function testDontKillMeForThisTest()
     {
         ob_start();
@@ -27,10 +14,14 @@ class VarDumpTest extends \PHPUnit_Framework_TestCase
         /* @var $eventDispatcher EventDispatcherInterface */
         $eventDispatcher = $this->container['event_dispatcher'];
 
+        $this->assertInstanceOf(EventDispatcherInterface::class, $eventDispatcher);
         $this->assertTrue($eventDispatcher->hasListeners(Event::FIRST_EVENT));
 
         /* @var $eventEmittingService EventEmittingService */
         $eventEmittingService = $this->container['event_emitting_service'];
+
+        $this->assertInstanceOf(EventEmittingService::class, $eventEmittingService);
+
         $eventEmittingService->emit();
 
         $result = ob_get_clean();

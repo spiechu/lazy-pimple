@@ -2,16 +2,20 @@
 
 namespace Spiechu\LazyPimple\Service;
 
-class AwesomeService {
-    public function __construct() {
+class AwesomeService
+{
+    public function __construct()
+    {
         echo 'awesome constructor called';
     }
 
-    public static function staticHit() {
+    public static function staticHit()
+    {
         echo 'static hit called';
     }
 
-    public function instanceHit() {
+    public function instanceHit()
+    {
         echo 'instance hit called';
     }
 }

@@ -5,8 +5,8 @@ namespace Spiechu\LazyPimple\Service;
 use Spiechu\LazyPimple\Event;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
-class EventEmittingService {
-
+class EventEmittingService
+{
     /**
      * @var EventDispatcherInterface
      */
@@ -15,11 +15,13 @@ class EventEmittingService {
     /**
      * @param EventDispatcherInterface $eventDispatcher
      */
-    public function __construct(EventDispatcherInterface $eventDispatcher) {
+    public function __construct(EventDispatcherInterface $eventDispatcher)
+    {
         $this->eventDispatcher = $eventDispatcher;
     }
 
-    public function emit() {
+    public function emit()
+    {
         echo 'emitting first event';
 
         $this->eventDispatcher->dispatch(Event::FIRST_EVENT);
