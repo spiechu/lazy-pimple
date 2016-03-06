@@ -24,8 +24,9 @@ matrix:
   fast_finish: true
 
 before_install:
-  - composer self-update
+  - composer selfupdate
   - if [ "$DEPENDENCIES" == "low" ]; then composer config disable-tls true; fi;
+  - if [ "$DEPENDENCIES" == "low" ]; then composer config secure-http false; fi;
 
 install:
   - phpenv rehash
