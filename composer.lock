@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5eb3d4e7375f494ad2c774616f337da6",
-    "content-hash": "91787f4dfb2ff2d1cde684577e7e8eae",
+    "hash": "2469fa70d0c158d4bbb4c94bc7222e79",
+    "content-hash": "94cf9810f29285461affc02a203a434f",
     "packages": [
         {
             "name": "ocramius/proxy-manager",
