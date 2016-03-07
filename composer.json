@@ -31,10 +31,5 @@
         "psr-4": {
             "Spiechu\\LazyPimple\\": "test"
         }
-    },
-    "config": {
-        "config": {
-            "bin-dir": "bin"
-        }
     }
 }
