@@ -5,6 +5,10 @@ Lazy service definitions for [Pimple DI container](http://pimple.sensiolabs.org/
 Travis build status:
 [![Build Status](https://travis-ci.org/spiechu/lazy-pimple.svg?branch=master)](https://travis-ci.org/spiechu/lazy-pimple)
 
+Other fancy badges:
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/spiechu/lazy-pimple/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/spiechu/lazy-pimple/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/spiechu/lazy-pimple/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/spiechu/lazy-pimple/?branch=master)
+
 ## Intro
 
 When using Pimple DIC, there is sometimes need to lazy load service and instantiate it only when needed.
