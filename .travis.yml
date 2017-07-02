@@ -6,18 +6,21 @@ cache:
   directories:
     - $HOME/.composer/cache
 
-matrix:
-  include:
-    - php: 5.5
-    - php: 5.6
-    - php: 7.0
-    - php: 7.1
-    - php: hhvm
-      dist: trusty
-  env:
+php:
+  - php: 5.5
+  - php: 5.6
+  - php: 7.0
+  - php: 7.1
+  - php: hhvm
+    dist: trusty
+
+env:
+  matrix:
     - DEPENDENCIES='low'
     - DEPENDENCIES='stable'
     - DEPENDENCIES='dev'
+
+matrix:
   allow_failures:
     - env: DEPENDENCIES='dev'
     - php: hhvm
