@@ -3,7 +3,7 @@
     "description": "Lazy service definitions for Pimple DI container.",
     "type": "library",
     "license": "MIT",
-    "keywords": ["pimple", "dic", "lazy", "DI", "dependency injection"],
+    "keywords": ["pimple", "dic", "lazy", "DI", "dependency injection", "service container"],
     "homepage": "https://github.com/spiechu/lazy-pimple",
     "authors": [
         {
