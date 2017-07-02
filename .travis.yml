@@ -7,12 +7,10 @@ cache:
     - $HOME/.composer/cache
 
 php:
-  - php: 5.5
-  - php: 5.6
-  - php: 7.0
-  - php: 7.1
-  - php: hhvm
-    dist: trusty
+  - 5.5
+  - 5.6
+  - 7.0
+  - 7.1
 
 env:
   matrix:
@@ -23,7 +21,6 @@ env:
 matrix:
   allow_failures:
     - env: DEPENDENCIES='dev'
-    - php: hhvm
   fast_finish: true
 
 before_install:
