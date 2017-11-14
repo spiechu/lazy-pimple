@@ -9,7 +9,7 @@ final class Event
     /**
      * No instantiation allowed.
      */
-    final private function __construct()
+    private function __construct()
     {
     }
 }

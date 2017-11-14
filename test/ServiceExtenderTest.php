@@ -9,7 +9,7 @@ class ServiceExtenderTest extends AbstractLazyPimpleTest
 {
     public function testAwesomeServiceAwareClass()
     {
-        /* @var $awesomeServiceAwareClass AwesomeServiceAwareClass */
+        // @var $awesomeServiceAwareClass AwesomeServiceAwareClass
         $awesomeServiceAwareClass = $this->container['awesome_service_aware'];
 
         $this->assertInstanceOf(AwesomeServiceAwareClass::class, $awesomeServiceAwareClass);
@@ -18,7 +18,7 @@ class ServiceExtenderTest extends AbstractLazyPimpleTest
 
     public function testBothInterfacesAwareClass()
     {
-        /* @var $bothInterfacesAwareClass BothInterfacesAwareClass */
+        // @var $bothInterfacesAwareClass BothInterfacesAwareClass
         $bothInterfacesAwareClass = $this->container['both_interfaces_aware'];
 
         $this->assertInstanceOf(BothInterfacesAwareClass::class, $bothInterfacesAwareClass);

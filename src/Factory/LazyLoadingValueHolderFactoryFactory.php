@@ -8,13 +8,13 @@ use ProxyManager\Factory\LazyLoadingValueHolderFactory;
 class LazyLoadingValueHolderFactoryFactory
 {
     /**
-     * @param string|null $proxyManagerCacheDir
+     * @param null|string $proxyManagerCacheDir
      *
      * @return LazyLoadingValueHolderFactory
      */
     public function getFactory($proxyManagerCacheDir = null)
     {
-        $proxyConfiguration = is_null($proxyManagerCacheDir) ? null : $this->getProxyManagerConfiguration($proxyManagerCacheDir);
+        $proxyConfiguration = null === $proxyManagerCacheDir ? null : $this->getProxyManagerConfiguration($proxyManagerCacheDir);
 
         $lazyLoadingFactory = new LazyLoadingValueHolderFactory($proxyConfiguration);
 
@@ -28,9 +28,9 @@ class LazyLoadingValueHolderFactoryFactory
     /**
      * @param string $proxyManagerCacheDir
      *
-     * @return Configuration
-     *
      * @throws \InvalidArgumentException When $proxyManagerCacheDir is not a dir
+     *
+     * @return Configuration
      */
     protected function getProxyManagerConfiguration($proxyManagerCacheDir)
     {

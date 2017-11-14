@@ -52,7 +52,7 @@ class LazyEventSubscriberServiceProvider implements ServiceProviderInterface
             $lazySubscriber = $this->lazyServiceFactory->getLazyServiceDefinition(
                 $className,
                 // encapsulate the whole Pimple service definition
-                function() use ($container, $serviceName) {
+                function () use ($container, $serviceName) {
                     return call_user_func($container->raw($serviceName), $container);
                 }
             );
@@ -64,9 +64,9 @@ class LazyEventSubscriberServiceProvider implements ServiceProviderInterface
     /**
      * @param Container $container
      *
-     * @return EventDispatcherInterface
-     *
      * @throws \InvalidArgumentException When container cannot instantiate EventDispatcher object
+     *
+     * @return EventDispatcherInterface
      */
     protected function getEventDispatcher(Container $container)
     {

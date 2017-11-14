@@ -11,13 +11,13 @@ class VarDumpTest extends AbstractLazyPimpleTest
     {
         ob_start();
 
-        /* @var $eventDispatcher EventDispatcherInterface */
+        // @var $eventDispatcher EventDispatcherInterface
         $eventDispatcher = $this->container['event_dispatcher'];
 
         $this->assertInstanceOf(EventDispatcherInterface::class, $eventDispatcher);
         $this->assertTrue($eventDispatcher->hasListeners(Event::FIRST_EVENT));
 
-        /* @var $eventEmittingService EventEmittingService */
+        // @var $eventEmittingService EventEmittingService
         $eventEmittingService = $this->container['event_emitting_service'];
 
         $this->assertInstanceOf(EventEmittingService::class, $eventEmittingService);

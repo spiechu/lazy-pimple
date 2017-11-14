@@ -24,16 +24,16 @@ class LazyServiceFactory
      * @param string   $className
      * @param callable $definition
      *
-     * @return VirtualProxyInterface
-     *
      * @throws \InvalidArgumentException When $definition callable doesn't return $className instance
+     *
+     * @return VirtualProxyInterface
      */
     public function getLazyServiceDefinition($className, callable $definition)
     {
         return $this->lazyLoadingFactory->createProxy(
             $className,
             // this fancy method signature is required by lazy loading factory
-            function(&$wrappedObject, $proxy, $method, $parameters, &$initializer) use ($className, $definition) {
+            function (&$wrappedObject, $proxy, $method, $parameters, &$initializer) use ($className, $definition) {
                 $wrappedObject = call_user_func($definition);
                 $initializer = null;
 

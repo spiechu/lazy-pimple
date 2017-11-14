@@ -26,16 +26,6 @@ class MultiServiceAwareExtender implements ServiceProviderInterface
     }
 
     /**
-     * {@inheritdoc}
-     */
-    public function register(Container $pimple)
-    {
-        foreach ($pimple->keys() as $serviceName) {
-            $pimple->extend($serviceName, $this);
-        }
-    }
-
-    /**
      * @param mixed     $service
      * @param Container $container
      *
@@ -48,7 +38,7 @@ class MultiServiceAwareExtender implements ServiceProviderInterface
         }
 
         $objectHash = spl_object_hash($service);
-        if (in_array($objectHash, $this->configuredServicesHash)) {
+        if (in_array($objectHash, $this->configuredServicesHash, true)) {
             return $service;
         }
 
@@ -56,6 +46,16 @@ class MultiServiceAwareExtender implements ServiceProviderInterface
         $this->configuredServicesHash[] = $objectHash;
 
         return $service;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function register(Container $pimple)
+    {
+        foreach ($pimple->keys() as $serviceName) {
+            $pimple->extend($serviceName, $this);
+        }
     }
 
     /**
