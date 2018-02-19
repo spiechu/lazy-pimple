@@ -28,20 +28,20 @@ class LazyServiceFactory
      *
      * @return VirtualProxyInterface
      */
-    public function getLazyServiceDefinition($className, callable $definition)
+    public function getLazyServiceDefinition(string $className, callable $definition): VirtualProxyInterface
     {
         return $this->lazyLoadingFactory->createProxy(
             $className,
             // this fancy method signature is required by lazy loading factory
             function (&$wrappedObject, $proxy, $method, $parameters, &$initializer) use ($className, $definition) {
-                $wrappedObject = call_user_func($definition);
+                $wrappedObject = $definition();
                 $initializer = null;
 
                 // extra defensive programming in action
                 if (!$wrappedObject instanceof $className) {
                     throw new \InvalidArgumentException(sprintf(
                         'Object "%s" is not instance of "%s"',
-                        is_object($wrappedObject) ? get_class($wrappedObject) : gettype($wrappedObject),
+                        \is_object($wrappedObject) ? \get_class($wrappedObject) : \gettype($wrappedObject),
                         $className
                     ));
                 }

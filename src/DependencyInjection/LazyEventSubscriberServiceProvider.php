@@ -31,7 +31,7 @@ class LazyEventSubscriberServiceProvider implements ServiceProviderInterface
      */
     public function __construct(
         LazyServiceFactory $lazyServiceFactory,
-        $eventDispatcherServiceName,
+        string $eventDispatcherServiceName,
         array $eventSubscriberServiceNames
     ) {
         $this->lazyServiceFactory = $lazyServiceFactory;
@@ -68,7 +68,7 @@ class LazyEventSubscriberServiceProvider implements ServiceProviderInterface
      *
      * @return EventDispatcherInterface
      */
-    protected function getEventDispatcher(Container $container)
+    protected function getEventDispatcher(Container $container): EventDispatcherInterface
     {
         $eventDispatcher = $container[$this->eventDispatcherServiceName];
 

@@ -24,7 +24,7 @@ class ExtendServiceDefinition
      * @param string $interfaceNameToHandle
      * @param string $methodNameToCall
      */
-    public function __construct($serviceNameToInject, $interfaceNameToHandle, $methodNameToCall)
+    public function __construct(string $serviceNameToInject, string $interfaceNameToHandle, string $methodNameToCall)
     {
         $this->serviceNameToInject = $serviceNameToInject;
         $this->interfaceNameToHandle = $interfaceNameToHandle;
@@ -34,7 +34,7 @@ class ExtendServiceDefinition
     /**
      * @return string
      */
-    public function getServiceNameToInject()
+    public function getServiceNameToInject(): string
     {
         return $this->serviceNameToInject;
     }
@@ -42,7 +42,7 @@ class ExtendServiceDefinition
     /**
      * @return string
      */
-    public function getInterfaceNameToHandle()
+    public function getInterfaceNameToHandle(): string
     {
         return $this->interfaceNameToHandle;
     }
@@ -50,7 +50,7 @@ class ExtendServiceDefinition
     /**
      * @return string
      */
-    public function getMethodNameToCall()
+    public function getMethodNameToCall(): string
     {
         return $this->methodNameToCall;
     }

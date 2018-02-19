@@ -33,16 +33,17 @@ class MultiServiceAwareExtender implements ServiceProviderInterface
      */
     public function __invoke($service, Container $container)
     {
-        if (!is_object($service)) {
+        if (!\is_object($service)) {
             return $service;
         }
 
         $objectHash = spl_object_hash($service);
-        if (in_array($objectHash, $this->configuredServicesHash, true)) {
+        if (\in_array($objectHash, $this->configuredServicesHash, true)) {
             return $service;
         }
 
         $this->configureService($service, $container);
+
         $this->configuredServicesHash[] = $objectHash;
 
         return $service;

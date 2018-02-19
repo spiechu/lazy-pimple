@@ -12,7 +12,7 @@ class LazyLoadingValueHolderFactoryFactory
      *
      * @return LazyLoadingValueHolderFactory
      */
-    public function getFactory($proxyManagerCacheDir = null)
+    public function getFactory($proxyManagerCacheDir = null): LazyLoadingValueHolderFactory
     {
         $proxyConfiguration = null === $proxyManagerCacheDir ? null : $this->getProxyManagerConfiguration($proxyManagerCacheDir);
 
@@ -32,7 +32,7 @@ class LazyLoadingValueHolderFactoryFactory
      *
      * @return Configuration
      */
-    protected function getProxyManagerConfiguration($proxyManagerCacheDir)
+    protected function getProxyManagerConfiguration(string $proxyManagerCacheDir): Configuration
     {
         if (!is_dir($proxyManagerCacheDir)) {
             throw new \InvalidArgumentException(sprintf('"%s" is not a dir', $proxyManagerCacheDir));
