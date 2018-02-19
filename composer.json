@@ -1,35 +1,47 @@
 {
-    "name": "spiechu/lazy-pimple",
-    "description": "Lazy service definitions for Pimple DI container.",
-    "type": "library",
-    "license": "MIT",
-    "keywords": ["pimple", "dic", "lazy", "DI", "dependency injection", "service container"],
-    "homepage": "https://github.com/spiechu/lazy-pimple",
-    "authors": [
-        {
-            "name": "Dawid Spiechowicz",
-            "email": "spiechu@gmail.com",
-            "homepage": "http://spiechu.pl",
-            "role": "Developer"
-        }
-    ],
-    "require": {
-        "php": ">=7.0",
-        "ocramius/proxy-manager": "~1.0|~2.0",
-        "pimple/pimple": "~2.1|~3.0",
-        "symfony/event-dispatcher": "~2.3|~3.0"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "~4.8"
-    },
-    "autoload": {
-        "psr-4": {
-            "Spiechu\\LazyPimple\\": "src"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Spiechu\\LazyPimple\\": "test"
-        }
+  "name": "spiechu/lazy-pimple",
+  "description": "Lazy service definitions for Pimple DI container.",
+  "type": "library",
+  "license": "MIT",
+  "keywords": [
+    "pimple",
+    "dic",
+    "lazy",
+    "DI",
+    "dependency injection",
+    "service container"
+  ],
+  "homepage": "https://github.com/spiechu/lazy-pimple",
+  "authors": [
+    {
+      "name": "Dawid Spiechowicz",
+      "email": "spiechu@gmail.com",
+      "homepage": "http://spiechu.pl",
+      "role": "Developer"
     }
+  ],
+  "require": {
+    "php": ">=7.0",
+    "ocramius/proxy-manager": "~1.0|~2.0",
+    "pimple/pimple": "~2.1|~3.0",
+    "symfony/event-dispatcher": "~2.3|~3.0|~4.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4.8"
+  },
+  "autoload": {
+    "psr-4": {
+      "Spiechu\\LazyPimple\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Spiechu\\LazyPimple\\": "test"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "0.x-dev"
+    }
+  }
 }

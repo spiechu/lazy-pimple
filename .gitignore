@@ -5,3 +5,6 @@ composer.phar
 
 /test/proxy_cache_dir/
 php-cs-fixer.phar
+
+.php_cs.cache
+composer.lock
