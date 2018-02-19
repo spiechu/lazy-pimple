@@ -1,3 +1,11 @@
+0.6 (2018-02-19)
+
+[Diff between 0.5 - 0.6](https://github.com/spiechu/lazy-pimple/compare/0.5...0.6)
+
+  * increase upper-bound for `symfony/event-dispatcher` to `~2.3|~3.0|~4.0`
+  * add parameter string typehints
+  * add return typehints
+
 0.5 (2017-11-14)
 
 [Diff between 0.4 - 0.5](https://github.com/spiechu/lazy-pimple/compare/0.4...0.5)
