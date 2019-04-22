@@ -19,7 +19,7 @@ env:
 matrix:
   exclude:
     - PHP: 7.3
-      DEPENDENCIES: low
+      env: DEPENDENCIES='low'
   allow_failures:
     - env: DEPENDENCIES='dev'
   fast_finish: true
