@@ -2,9 +2,10 @@
 
 namespace Spiechu\LazyPimple;
 
+use PHPUnit\Framework\TestCase;
 use Pimple\Container;
 
-abstract class AbstractLazyPimpleTest extends \PHPUnit_Framework_TestCase
+abstract class AbstractLazyPimpleTest extends TestCase
 {
     /**
      * @var Container
