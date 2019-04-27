@@ -33,7 +33,7 @@ class LazyServiceFactory
         return $this->lazyLoadingFactory->createProxy(
             $className,
             // this fancy method signature is required by lazy loading factory
-            function (&$wrappedObject, $proxy, $method, $parameters, &$initializer) use ($className, $definition) {
+            static function (&$wrappedObject, $proxy, $method, $parameters, &$initializer) use ($className, $definition) {
                 $wrappedObject = $definition();
                 $initializer = null;
 

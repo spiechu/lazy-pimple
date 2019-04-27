@@ -42,7 +42,7 @@ class LazyEventSubscriberServiceProvider implements ServiceProviderInterface
     /**
      * {@inheritdoc}
      */
-    public function register(Container $container)
+    public function register(Container $container): void
     {
         $eventDispatcher = $this->getEventDispatcher($container);
 
@@ -52,7 +52,7 @@ class LazyEventSubscriberServiceProvider implements ServiceProviderInterface
             $lazySubscriber = $this->lazyServiceFactory->getLazyServiceDefinition(
                 $className,
                 // encapsulate the whole Pimple service definition
-                function () use ($container, $serviceName) {
+                static function () use ($container, $serviceName) {
                     return call_user_func($container->raw($serviceName), $container);
                 }
             );
@@ -74,8 +74,9 @@ class LazyEventSubscriberServiceProvider implements ServiceProviderInterface
 
         if (!$eventDispatcher instanceof EventDispatcherInterface) {
             throw new \InvalidArgumentException(sprintf(
-                'Container service "%s" is not instance of "EventDispatcherInterface"',
-                $this->eventDispatcherServiceName
+                'Container service "%s" is "%s" and not exptected instance of "EventDispatcherInterface"',
+                $this->eventDispatcherServiceName,
+                \is_object($eventDispatcher) ? \get_class($eventDispatcher) : \gettype($eventDispatcher)
             ));
         }
 

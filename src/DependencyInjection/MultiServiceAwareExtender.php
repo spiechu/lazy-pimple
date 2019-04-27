@@ -52,7 +52,7 @@ class MultiServiceAwareExtender implements ServiceProviderInterface
     /**
      * {@inheritdoc}
      */
-    public function register(Container $pimple)
+    public function register(Container $pimple): void
     {
         foreach ($pimple->keys() as $serviceName) {
             $pimple->extend($serviceName, $this);
@@ -63,7 +63,7 @@ class MultiServiceAwareExtender implements ServiceProviderInterface
      * @param object    $service
      * @param Container $container
      */
-    protected function configureService($service, Container $container)
+    protected function configureService($service, Container $container): void
     {
         foreach ($this->extendServiceDefinitions as $extendServiceDefinition) {
             $interfaceNameToInject = $extendServiceDefinition->getInterfaceNameToHandle();
