@@ -21,10 +21,10 @@ return call_user_func(function () {
     $pimpleContainer = new Container();
 
     $pimpleContainer['proxy_manager_cache_target_dir'] = function (Container $container) {
-        $targetDir = __DIR__.'/proxy_cache_dir';
+        $targetDir = __DIR__ . '/proxy_cache_dir';
 
-        if (!is_dir($targetDir)) {
-            mkdir($targetDir, 0775, true);
+        if (!is_dir($targetDir) && !mkdir($targetDir, 0775, true) && !is_dir($targetDir)) {
+            throw new \RuntimeException(sprintf('Directory "%s" was not created', $targetDir));
         }
 
         return $targetDir;
@@ -41,6 +41,10 @@ return call_user_func(function () {
 
     $pimpleContainer['event_dispatcher'] = function (Container $container) {
         return new EventDispatcher();
+    };
+
+    $pimpleContainer['bad_event_dispatcher'] = function (Container $container) {
+        return new \stdClass();
     };
 
     // imgine awesome service is expensive and should be lazy loaded
