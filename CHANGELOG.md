@@ -1,3 +1,12 @@
+0.7 (2019-04-27)
+
+[Diff between 0.6 - 0.7](https://github.com/spiechu/lazy-pimple/compare/0.6...0.7)
+
+  * drop support for PHP 7.0
+  * minor code adjustments related to PHP 7.1
+  * upgrade PHPUnit to 7
+  * unit test some edge cases
+
 0.6 (2018-02-19)
 
 [Diff between 0.5 - 0.6](https://github.com/spiechu/lazy-pimple/compare/0.5...0.6)
