@@ -24,7 +24,7 @@ abstract class AbstractLazyPimpleTest extends TestCase
     {
         $this->originalAutoloader = current(spl_autoload_functions());
 
-        $this->assertIsCallable($this->originalAutoloader);
+        $this->assertInternalType('callable', $this->originalAutoloader);
 
         $this->container = require 'container_definition.php';
 
